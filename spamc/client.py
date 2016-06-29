@@ -192,7 +192,7 @@ class SpamC(object):
             try:
                 conn = self.get_connection()
                 if hasattr(msg, 'read') and hasattr(msg, 'fileno'):
-                    msg_length = str(os.fstat(msg.fileno()).st_size)
+                    msg_length = str(os.fstat(msg.fileno()).st_size + 2)
                 elif hasattr(msg, 'read'):
                     msg.seek(0, 2)
                     msg_length = str(msg.tell() + 2)
